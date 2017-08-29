@@ -1,0 +1,15 @@
+El sistema de packet debe ser sencillo y simple
+
+
+Idea de formato de paquete
+
+primer byte: id del paquete
+
+en base al primer byte, se toma el formato del paquete.
+Por ejemplo:
+
+0x00 para el PacketPing y no requiere ningun valor adicional
+0x01 PacketSetPosition con dos int a continuacion
+
+y uno ultimo
+0xFF para habilitar otro byte para paquetes adicionales en caso de que haga falta

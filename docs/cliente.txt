@@ -1,0 +1,11 @@
+
+ -> game.exe
+
+1. iniciar ventana
+2. mostrar logo de desarrolladores
+3. se carga la clase de NetworkManager
+   se carga la clase que gestiona recursos (cosas que no estan en
+      el cliente, texturas, modelos adicionale, etc)
+4. intro o login screen
+5. character select
+6. juego
