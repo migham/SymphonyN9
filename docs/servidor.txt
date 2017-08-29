@@ -1,0 +1,15 @@
+
+ -> server-game.exe
+
+1. iniciar juego
+2. ????
+3. escuchar por conexiones de server-listeners.exe
+
+ -> server-listeners.exe
+
+1. iniciar listen en el puerto XXXX
+2. aceptar conexiones
+3. agregar conexiones a la lista de clientes
+4. iniciar hilo de lectura y escritura del cliente
+5. continuar al punto 2
+
