@@ -1,5 +1,61 @@
-[gd_scene format=1]
+[gd_scene load_steps=2 format=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	
+	pass
+
+
+func _on_btnHello_pressed():
+	get_node(\"Label\").set_text(\"Miau!!\")
+	pass # replace with function body
+"
 
 [node name="Main" type="Node2D"]
+
+script/script = SubResource( 1 )
+
+[node name="btnHello" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 197.0
+margin/top = 189.0
+margin/right = 407.0
+margin/bottom = 241.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Presionar"
+flat = false
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 218.0
+margin/top = 118.0
+margin/right = 385.0
+margin/bottom = 162.0
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="pressed" from="btnHello" to="." method="_on_btnHello_pressed"]
 
 
