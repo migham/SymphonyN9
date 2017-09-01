@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientsListener.cs" />
+    <Compile Include="ServerConnector.cs" />
+    <Compile Include="Packet.cs" />
+    <Compile Include="PacketServerOffline.cs" />
     <Compile Include="Clients.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Program.cs" />

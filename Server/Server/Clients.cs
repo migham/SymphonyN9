@@ -4,17 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Net.Sockets;
 
-namespace Server
+namespace ServerListener
 {
     class Clients
     {
+        //TODO: propiedad de lista de elementos, donde se almacenan los objetos Client
+        //private array de Clients lista;
+
         public Clients()
         {
         }
 
-        public void add(Socket sock)
+        public void Add(Socket sock)
         {
-            //TODO Agregar sock a una lista, donde se almacenan los clientes
+            //TODO 
+            Client nuevocliente = new Client();
+
+            //TODO
+            //lista.add(nuevocliente);
+
+            nuevocliente.Start();
         }
     }
 }

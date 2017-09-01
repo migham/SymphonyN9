@@ -5,13 +5,13 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 
-namespace Server
+namespace ServerListener
 {
     /**
      * Esto representa a un nodo de conexiones del servidor.
      * Solo acepta conexiones entrantes y guarda las conexiones
      * en una lista, el cual lee y escribe en el socket del cliente.
-     * Todos los packets recividos son almacenados en una lista el
+     * Todos los packets recibidos son almacenados en una lista el
      * cual será enviado al proceso ServerGame.exe y lo que devuelva
      * será enviado al cliente, segun el paquete esté identificado.
      * 
@@ -19,25 +19,25 @@ namespace Server
      */
     class Program
     {
-        static public bool running = false;
+        static public Clients clients;
+        static public ClientsListener listener;
+        static public ServerConnector connector;
+
+        static public bool running = true; // para indicar que se debe finalizar el programa
+        static public bool connected = true; // solo para conocer el estado de ServerConnector
 
         static void Main(string[] args)
         {
-            // iniciamos las conexiones de escucha TODO: el primer parametro de TcpListener es obsoleto?
-            TcpListener listener = new TcpListener(8001);
+            // lista de clientes
+            clients = new Clients();
 
-            listener.Start();
+            // conexion al servidor
+            connector = new ServerConnector();
+            connector.Start();
 
-            while (Program.running)
-            {
-                Socket sock = listener.AcceptSocket();
-
-                if (sock)
-                {
-                    // agregamos el socket como cliente
-                    Clients.add(sock);
-                }
-            }
+            // conexion de los clientes
+            listener = new ClientsListener();
+            listener.Loop(); // loop infinito
         }
     }
 }
